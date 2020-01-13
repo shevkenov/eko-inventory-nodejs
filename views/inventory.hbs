@@ -1,0 +1,30 @@
+<div class="invoice-result">
+    {{#if arrArticles}}
+    <table id="customers">
+        <tr>
+            <th>SAP Code</th>
+            <th>Barcode</th>
+            <th>Name</th>
+            <th>Orpak Stock</th>
+            <th>In Stock</th>
+            <th>Difference</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Supplier</th>
+        </tr>
+        {{#each arrArticles}}
+        <tr>
+            <td>{{sapcode}}</td>
+            <td>{{barcode}}</td>
+            <td>{{name}}</td>
+            <td>{{orpakStock}}</td>
+            <td>{{inStock}}</td>
+            <td>{{difference}}</td>
+            <td>{{price}} lv.</td>
+            <td>{{amount}} lv.</td>
+            <td>{{supplier}}</td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/if}}
+</div>

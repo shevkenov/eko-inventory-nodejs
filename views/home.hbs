@@ -1,0 +1,24 @@
+<div class="main">
+
+    <form enctype="multipart/form-data" method="post" id="orpakArticles">
+        <h2 class="fileHeading">1. Орпак файл - формат сапкод, баркод, бройка, цена</h2>
+        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
+    </form>
+    <form enctype="multipart/form-data" method="post" id="countedArticles">
+        <h2 class="fileHeading">2. Намерена наличност - формат баркод, бройка</h2>
+        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
+    </form>
+    <form enctype="multipart/form-data" method="post" id="sapArticles">
+        <h2 class="fileHeading">3. САП файл - формат сапкод, име на артикул, доставчик</h2>
+        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
+    </form>
+    <div class="progress">
+        <p class="progressInfo"></p>
+        <div class="progressBar">
+        </div>
+    </div>
+    <div class="downloadFile">
+        <a href="/inventory">Inventory result</a>
+    </div>
+
+</div>

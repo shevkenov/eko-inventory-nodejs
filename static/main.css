@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+    display: flex;
+    background-color: rgb(33, 65, 114);
+    overflow: hidden;
+    height: 80px;
+    align-items: center;
+    align-content: stretch;
+}
+
+.nav-right{
+  margin-left: auto;
+}
+
+.topnav img{
+  width: 70px;
+  height: 70px;
+  padding-left: 1em;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: #f2f2f2;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(13, 36, 112);
+  color: rgb(216, 213, 23);
+}
+
+/* Right-aligned section inside the top navigation */
+
+.notification{
+  text-align: center;
+  margin: 2em;
+  color: red;
+}
+
+.not-found {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.not-found > #sadFaceImg {
+  height: 30%;
+  width: 30%;
+}
+
+.main {
+  width: 50%;
+  height: 100vh;
+  margin: auto;
+  background: rgb(177, 230, 248);
+  padding: 1em;
+}
+
+.main form{
+  padding-top: 1em;
+}
+
+.main input{
+  background: palegoldenrod;
+}
+
+/* invoice table start */
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(219, 229, 245);
+  color: rgb(33, 65, 114);
+}
+
+/* invoice table end */
+
+.invoice-result{
+  background-color: rgb(242, 244, 247);
+  padding: 2em 4em;
+}
+
+.invoice-result h2{
+  padding-bottom: 0.5em;
+}
+
+/* start upload VAT file */
+
+.progressBar{
+  margin-top: 1em;
+  height: 10px;
+  background: firebrick;
+  border-radius: 5px;
+  width: 0%;
+}
+
+.progressInfo{
+  margin-top: 2em;
+  font-weight: bold;
+}
+
+.inputUploadFile{
+  margin-left: 1em;
+  margin-top: 1em;
+}
+
+.downloadFile{
+  display: none;
+  margin-top: 1em;
+}
+
+#countedArticles{
+  display: none;
+}
+
+#orpakArticles{
+  display: block;
+}
+
+#sapArticles{
+  display: none;
+}
+
+.fileHeading{
+  color: rgb(143, 55, 5);
+}
+
+/* end upload VAT file */
