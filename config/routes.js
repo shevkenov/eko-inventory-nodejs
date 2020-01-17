@@ -8,6 +8,7 @@ module.exports = (app) => {
     app.get('/clear', controller.getClearData);
     app.get("/download", controller.getDownload);
     app.get("/orpakDownload", controller.getOrpakDownload);
+    app.post("/index/:index/inStock/:inStock/difference/:difference/amount/:amount", controller.postNewValues);
     
     app.get("/", controller.getHome);
 

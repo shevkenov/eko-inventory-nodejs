@@ -1,8 +1,7 @@
 const formidable = require("formidable");
 const fs = require("fs");
 const iconv = require("iconv-lite");
-const inventory = require("../model/Inventory");
-
+const inventory = require("../model/InventoryObj");
 let arrArticles;
 
 module.exports = {
@@ -22,7 +21,8 @@ module.exports = {
 
       if (/^\d{4}\.csv$/.test(file.name)) {
         inventory.importCountedArticles(articles);
-        inventory.fuelStation = "1079";
+        inventory.fuelStation = file.name.slice(0,4);
+        inventory.inventoryReport();
         res.write("OK");
         res.end();
       }
@@ -34,7 +34,7 @@ module.exports = {
       }
 
       if (file.name === "sap.csv") {
-        arrArticles = inventory.importSapArticles(articles);
+        inventory.importSapArticles(articles);
         res.write("OK");
         res.end();
       }
@@ -42,6 +42,7 @@ module.exports = {
   },
   getInventory: (req, res) => {
     if (inventory.fuelStation) {
+      arrArticles = inventory.result;
       const { fuelStation } = inventory;
       res.render("inventory.hbs", { arrArticles, fuelStation });
       return;
@@ -66,17 +67,27 @@ module.exports = {
     res.redirect("/");
   },
   getDownload: (req, res) => {
-    let data = inventory.reportInventory();
+    let data = inventory.csvExport();
 
     fs.writeFile("inventory.csv", data, () => {
       res.download("inventory.csv");
     });
   },
   getOrpakDownload: (req, res) => {
-    let data = inventory.orpakReportInventory();
+    let data = inventory.orpakExport();
 
     fs.writeFile("orpakInventory.csv", data, () => {
       res.download("orpakInventory.csv");
     });
+  },
+  postNewValues: (req,res) => {
+    const inStock = Number(req.params.inStock);
+    const index = Number(req.params.index);
+    const difference = Number(req.params.difference);
+    const amount = Number(req.params.amount);
+    
+    inventory.editValues(index,inStock,difference,amount);
+    res.write('OK');
+    res.end();
   }
 };

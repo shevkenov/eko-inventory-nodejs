@@ -2,26 +2,28 @@
     {{#if arrArticles}}
     <table id="customers">
         <tr>
+            <th>No</th>
             <th>SAP Code</th>
-            <th>Barcode</th>
+            <th>Barcode Code</th>
             <th>Name</th>
-            <th>Orpak Stock</th>
+            <th>Orpak<br>Stock</th>
             <th>In Stock</th>
-            <th>Difference</th>
+            <th>Diff.</th>
             <th>Price</th>
             <th>Amount</th>
             <th>Supplier</th>
         </tr>
         {{#each arrArticles}}
-        <tr>
+        <tr> 
+            <td>{{index}}</td> 
             <td>{{sapcode}}</td>
             <td>{{barcode}}</td>
             <td>{{name}}</td>
             <td>{{orpakStock}}</td>
-            <td>{{inStock}}</td>
+            <td class="input-td"><input value="{{inStock}}" type="number" onchange="editValues(event,index = {{index}})"></td>
             <td>{{difference}}</td>
-            <td>{{price}} lv.</td>
-            <td>{{amount}} lv.</td>
+            <td>{{price}}</td>
+            <td>{{amount}}</td>
             <td>{{supplier}}</td>
         </tr>
         {{/each}}

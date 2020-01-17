@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path')
 const handlebars = require('express-handlebars');
+const bodyParser = require("body-parser");
 
 module.exports = (app) => {
     app.engine(
@@ -12,6 +13,6 @@ module.exports = (app) => {
         partialsDir: "views/partials"
       })
     );
-    //app.set("view engine", "hbs");
+
     app.use(express.static(path.resolve(__basedir, 'static')));
 }
