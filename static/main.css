@@ -44,6 +44,17 @@
   color: red;
 }
 
+.files-list{
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+span{
+  color: rgb(143, 55, 5);
+  font-weight: 600;
+  font-style: italic;
+}
+
 .not-found {
   margin-top: 3em;
   text-align: center;
@@ -55,7 +66,7 @@
 }
 
 .main {
-  width: 50%;
+  width: 60%;
   height: 100vh;
   margin: auto;
   background: rgb(177, 230, 248);
@@ -66,9 +77,6 @@
   padding-top: 1em;
 }
 
-.main input{
-  background: palegoldenrod;
-}
 
 /* invoice table start */
 
@@ -113,27 +121,35 @@
 
 /* start upload VAT file */
 
-.progressBar{
-  margin-top: 1em;
-  height: 10px;
-  background: firebrick;
-  border-radius: 5px;
-  width: 0%;
-}
-
-.progressInfo{
-  margin-top: 2em;
-  font-weight: bold;
-}
-
 .inputUploadFile{
-  margin-left: 1em;
-  margin-top: 1em;
+  border:0;
+  outline:none;
+  border-radius: 5px;
+  padding:0.5em 1em;
+  font-size:1rem;
+  font-weight:bold;
+  letter-spacing:.1em;
+  background:  none;
+  color: black;
+  transition:all.5s ease;
+  -webkit-appearance: none;
+  border:1px solid;
+  border-color: rgb(33, 65, 114);
 }
 
-.downloadFile{
-  display: none;
-  margin-top: 1em;
+.inputUploadFile:hover{
+  box-shadow:0 4px 10px 4px rgb(13, 36, 112);
+  cursor: pointer;
+}
+
+input {
+  font-size:1rem;
+  padding:5px 10px;
+  background:none;
+  border:1px solid;
+  color:black;
+  border-radius: 5px;
+  border-color: rgb(33, 65, 114);
 }
 
 #countedArticles{

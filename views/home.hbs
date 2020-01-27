@@ -1,24 +1,17 @@
 <div class="main">
+        <h2 class="fileHeading">Файлове които очаква системата!</h2>
+        <ul class="files-list">
+            <li>Файл експортиран от <span>САП</span>, формат - <span>баркод, сапкод, име на артикул, доставчик</span>. Име на файла <span>sap.csv</span></li>
+            <li>Файл експортиран от <span>Орпак</span>, формат - <span>сапкод, баркод, наличност, цена</span>. Име на файла <span>orpak.csv</span></li>
+            <li>Файл с <span>броената наличност</span>, формат - <span>баркод, наличност, име</span>. Име на файла <span>(номер на бензиностанция).csv</span></li>
+            <li>Раделителя на данни във файловете трябва да бъде <span>;</span></li>
+        </ul>
+    <form enctype="multipart/form-data" method="post" id="orpakArticles" action="/upload">
+        <input type="file" name="fileToUpload" accept=".csv"  multiple required>
+        <input type="submit" value="Обработка" class="inputUploadFile">
+    </form>
 
-    <form enctype="multipart/form-data" method="post" id="orpakArticles">
-        <h2 class="fileHeading">1. Орпак файл - формат сапкод, баркод, бройка, цена</h2>
-        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
-    </form>
-    <form enctype="multipart/form-data" method="post" id="countedArticles">
-        <h2 class="fileHeading">2. Намерена наличност - формат баркод, бройка</h2>
-        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
-    </form>
-    <form enctype="multipart/form-data" method="post" id="sapArticles">
-        <h2 class="fileHeading">3. САП файл - формат сапкод, име на артикул, доставчик</h2>
-        <input type="file" name="fileToUpload" accept=".csv" class="inputUploadFile"><br><br>
-    </form>
-    <div class="progress">
-        <p class="progressInfo"></p>
-        <div class="progressBar">
-        </div>
+    <div class="notification">
+        <h2 class="notification-heading">{{error}}</h2>
     </div>
-    <div class="downloadFile">
-        <a href="/inventory">Inventory result</a>
-    </div>
-
 </div>

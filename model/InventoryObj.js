@@ -201,7 +201,7 @@ class Inventory {
         decimalQty = qty.toString().substring(inx + 1);
         decimalQty = ("000" + decimalQty).slice(-3);
       }
-      const barcode = ("000000000000" + row.barcode).slice(-13);
+      const barcode = row.barcode === '-' ? "0000000000000" : ("000000000000" + row.barcode).slice(-13);
       data += `${barcode}${intQty}${decimalQty}\n`;
     });
 
