@@ -9,8 +9,6 @@
             <th>Orpak<br>Stock</th>
             <th>In Stock</th>
             <th>Diff.</th>
-            <th>Price</th>
-            <th>Amount</th>
             <th>Supplier</th>
         </tr>
         {{#each arrArticles}}
@@ -22,8 +20,6 @@
             <td>{{orpakStock}}</td>
             <td class="input-td"><input value="{{inStock}}" type="number" onchange="editValues(event,index = {{index}})"></td>
             <td>{{difference}}</td>
-            <td>{{price}}</td>
-            <td>{{amount}}</td>
             <td>{{supplier}}</td>
         </tr>
         {{/each}}
