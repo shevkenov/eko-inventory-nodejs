@@ -17,11 +17,6 @@ function editValues(event, index) {
   const differenceValue = Number(inStock) - Number(orpakStock);
   difference.textContent = differenceValue;
 
-  const priceValue = td[7].textContent;
-  const amount = td[8];
-  const amountValue = Number(priceValue) * Number(differenceValue);
-  amount.textContent = amountValue.toFixed(2);
-
   index -= 1;
   formData.append("inStock", inStock);
   ajax.open(
@@ -31,9 +26,7 @@ function editValues(event, index) {
       "/inStock/" +
       inStock +
       "/difference/" +
-      differenceValue +
-      "/amount/" +
-      amountValue
+      differenceValue
   );
   ajax.send(formData);
 }
