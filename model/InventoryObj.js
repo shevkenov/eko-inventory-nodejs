@@ -13,14 +13,13 @@ class Inventory {
     return this._fuelStation;
   }
 
-  editValues(index, newInStock, newDifference, newAmount) {
+  editValues(index, newInStock, newDifference) {
     let article = this.result[index];
 
     article = {
       ...article,
       inStock: newInStock.toFixed(2),
       difference: newDifference,
-      amount: newAmount.toFixed(2)
     };
 
     this.result.splice(index, 1, article);
@@ -47,8 +46,6 @@ class Inventory {
             this.articles[k].inStock += count;
             const difference = this.articles[k].inStock - this.articles[k].orpakStock;
             this.articles[k].difference = difference;
-            const amount = difference * this.articles[k].price;
-            this.articles[k].amount = amount.toFixed(2);
             isBarcodeFound = true;
           }
         });
@@ -60,8 +57,6 @@ class Inventory {
             inStock: count,
             orpakStock: 0,
             difference,
-            price: 0,
-            amount: 0,
             supplier: "-"
           };
         }
@@ -79,7 +74,6 @@ class Inventory {
       //when barcode is missing, sapcode will be using
       const curBarcode = data[1] ? data[1] : curSapcode;
       let orpakStock = Number(data[2]);
-      const price = Number(data[3]);
 
       const sapcodeRegex = /^\d{9}$/;
       const barcodeRegex = /^\d{1,13}$/;
@@ -100,35 +94,26 @@ class Inventory {
 
           orpakStock += this.articles[curSapcode].orpakStock;
           const difference = this.articles[curSapcode].inStock - orpakStock;
-          const amount = difference * price;
 
           this.articles[curSapcode] = {
             ...this.articles[curSapcode],
             orpakStock,
             difference,
-            price,
-            amount: amount.toFixed(2)
           };
         } else if (this.articles[curBarcode]) {
           orpakStock += this.articles[curBarcode].orpakStock;
           const difference = this.articles[curBarcode].inStock - orpakStock;
-          const amount = difference * price;
 
           this.articles[curBarcode] = {
             ...this.articles[curBarcode],
-            price,
             orpakStock,
             difference,
-            amount: amount.toFixed(2)
           };
         } else {
           const difference = -orpakStock;
-          const amount = difference * price;
           this.articles[curSapcode] = {
             orpakStock,
             inStock: 0,
-            price,
-            amount: amount.toFixed(2),
             difference,
             barcode: [curSapcode]
           };
@@ -158,9 +143,7 @@ class Inventory {
             supplier,
             orpakStock: 0,
             inStock: 0,
-            price: 0,
             difference: 0,
-            amount: 0
           };
         }
 
@@ -183,7 +166,7 @@ class Inventory {
     let data =
       "No;Sapcode;Barcode;Name;OrpakStock;In Stock;Differnce;Price;Amount;Supplier;\n";
     this.result.forEach(row => {
-      data += `${row.index};${row.sapcode};${row.barcode};${row.name};${row.orpakStock};${row.inStock};${row.difference};${row.price};${row.amount};${row.supplier}\n`;
+      data += `${row.index};${row.sapcode};${row.barcode};${row.name};${row.orpakStock};${row.inStock};${row.difference};${row.supplier}\n`;
     });
 
     return data;
