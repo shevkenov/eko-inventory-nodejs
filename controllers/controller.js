@@ -133,8 +133,8 @@ module.exports = {
   getOrpakDownload: (req, res) => {
     let data = inventory.orpakExport();
 
-    fs.writeFile("orpakInventory.csv", data, () => {
-      res.download("orpakInventory.csv");
+    fs.writeFile("orpakInventory.txt", data, () => {
+      res.download("orpakInventory.txt");
     });
   },
   postNewValues: (req,res) => {
